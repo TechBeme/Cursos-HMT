@@ -1,0 +1,30 @@
+{% extends "form.html" %}
+{% block title %}Cadastro - Cursos Hospital Madre Teresa{% endblock %}
+{% block form_title %}Cadastro{% endblock %}
+{% block form_action %}{{ url_for('auth.signup') }}{% endblock %}
+{% block form_input %}
+<div class="form-floating">
+  <input type="username" name="username" class="form-control rounded-bottom-0" id="username" placeholder="Username"
+    required>
+  <label for="username">Usuário</label>
+</div>
+<div class="form-floating">
+  <input type="email" name="email" class="form-control rounded-0" id="email" placeholder="name@example.com"
+    required>
+  <label for="email">Email</label>
+</div>
+<div class="form-floating">
+  <input type="password" name="password1" class="form-control rounded-0" id="password1" placeholder="Password"
+    required>
+  <label for="password1">Senha</label>
+</div>
+<div class="form-floating mb-3">
+  <input type="password" name="password2" class="form-control rounded-top-0" id="password2" placeholder="Password"
+    required>
+  <label for="password2">Confirme a senha</label>
+</div>
+{% endblock %}
+{% block form_submit %}Cadastrar{% endblock %}
+{% block form_extra %}
+<small class="text-body-secondary">Ao clicar em cadastrar, você concorda com os termos de uso.</small>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="bg-body-tertiary">
+    <div class="d-flex min-vh-100 align-items-center m-auto" style="max-width: 430px;" role="document">
+        <div class="modal-content">
+            <div class="modal-header p-5 pb-4 border-bottom-0">
+                <h1 class="fw-bold mb-0 fs-2">{% block form_title %}<!-- Change form title -->{% endblock %}</h1>
+            </div>
+            <div class="modal-body p-5 pt-0">
+                <form method="POST">
+                    {% block form_input %}<!-- Add input fields -->{% endblock %}
+                    {% with messages = get_flashed_messages(with_categories=True) %}
+                    {% if messages %}
+                    {% for category, message in messages %}
+                    {% if category == 'success' %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% else %}
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                    <button class="w-100 mb-2 btn btn-lg rounded-3 btn-info" type="submit">{% block form_submit
+                        %}<!-- Add any additional content you want -->{% endblock %}</button>
+                    {% block form_extra %}{% endblock %}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

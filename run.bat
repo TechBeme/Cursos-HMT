@@ -1,0 +1,1 @@
+wt --title Flask python.exe .\run.py
